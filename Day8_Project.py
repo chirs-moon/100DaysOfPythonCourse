@@ -40,8 +40,6 @@ def ceaser(text, shift, direction):
                 y = len(alphabet) + z + shift
                 y = alphabet[y]
                 message += y
-            elif i not in alphabet:
-                message += i
             else:
                 y = alphabet[z + shift]
                 message += y
@@ -57,8 +55,7 @@ while more != "no":
     shift_input = int(input("Type the shift number:\n"))
 
     if shift_input >= 27:
-        x = int(shift_input / 26)
-        shift_input = shift_input - x * 26
+        shift_input = shift_input % 26
 
     ceaser(text_input, shift_input, direction_input)
 
